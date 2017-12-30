@@ -1,0 +1,23 @@
+/*  #Theme Products + CTA footer
+===========================================*/
+swipe-to-dismiss-layout-2 {
+
+  [new-price] {
+    margin-top: 35px !important;
+  }
+
+  [old-price] {
+    margin-top: 20px;
+    font-weight: 400;
+    display: block;
+    clear: both;
+    text-decoration: line-through;
+    color: theme-colors('textColors', 'secondary', 'opacity60');
+    font-size: $h5-font-size;
+  }
+
+  ion-thumbnail img {
+    width: 90px !important;
+    height: 90px !important;
+  }
+}

@@ -1,0 +1,29 @@
+/*  #Style Field + Header
+===========================================*/
+search-bar-layout-2 {
+  [container-hearder-image] {
+    background: url('../images/background/30.jpg');
+    @include darkening-blend-mode;
+    height: 160px!important;
+    padding: 0;
+    position: relative;
+  }
+
+  [search-bar-bcg] {
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+    right: 0;
+    left: 0;
+
+    .searchbar-input {
+      background-color: theme-colors('mainColors', 'primary');
+      color: theme-colors('textColors', 'primary');
+    }
+  }
+
+  [search-bar-title] {
+    margin-bottom: 0;
+    margin-left: 10px;
+  }
+}

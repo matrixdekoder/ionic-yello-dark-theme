@@ -1,0 +1,51 @@
+/*  #Style Down + fadr in + Ken Burns
+===========================================*/
+splash-screen-layout-2 {
+  #splash-background-image .splash-screen {
+    animation: splashScreen 40s ease infinite;
+    -ms-animation: splashScreen 40s ease infinite;
+    -webkit-animation: splashScreen 40s ease infinite;
+    -o-animation: splashScreen 40s ease infinite;
+    -moz-animation: splashScreen 40s ease infinite;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  @keyframes splashScreen {
+    0%,
+    100% {
+      transform: scale(1.5, 1.5) translate(20px, 20px);
+    }
+
+    25% {
+      transform: scale(1.8, 1.8) translate(50px, 50px);
+    }
+
+    50% {
+      transform: scale(1.6, 1.6) translate(60px, 90px);
+    }
+
+    75% {
+      transform: scale(2.0, 2.0) translate(10px, 10px);
+    }
+  }
+
+  .logo {
+    max-width: 100px;
+    position: absolute;
+    top: 50% !important;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    -webkit-animation: slideInDown 5s;
+    /* Safari 4+ */
+    -moz-animation: slideInDown 5s;
+    /* Fx 5+ */
+    -o-animation: slideInDown 5s;
+    /* Opera 12+ */
+    animation: slideInDown 5s;
+    /* IE 10+, Fx 29+ */
+  }
+}

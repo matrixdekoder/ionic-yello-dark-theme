@@ -1,0 +1,18 @@
+<!--Theme Wizard Big Image -->
+
+<!--Content-->
+
+<ion-slides #wizardSlider  *ngIf="data != null" (ionSlideDidChange)="slideHasChanged()" pager="true">
+  <ion-slide background-size *ngFor="let item of data.items;" [ngStyle]="{'background-image': 'url(' + item.backgroundImage + ')'}">
+    <h1 wizard-title>{{item.title}}</h1>
+  </ion-slide>
+</ion-slides>
+<!--Button section-->
+<div *ngIf="data != null">
+  <button default-button full ion-button (click)="changeSlide(1)" *ngIf="next">
+    {{data.btnNext}}
+  </button>
+  <button default-button full ion-button (click)="onEvent('onFinish')" *ngIf="finish">
+    {{data.btnFinish}}
+  </button>
+</div>

@@ -1,0 +1,42 @@
+<!-- Themes Swipe To Dismiss Products + CTA footer -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+      <ion-list no-margin>
+        <ion-item-sliding *ngFor="let item of data.items" #slidingItem>
+          <ion-item no-padding no-margina (click)="onEvent('onItemClick', item.title, $event)">
+            <ion-thumbnail no-margin item-start>
+              <img [src]="item.image">
+            </ion-thumbnail>
+            <h2 item-title padding-left>{{item.title}}</h2>
+            <p item-subtitle padding-left>{{item.description}}</p>
+            <item-content item-end text-right>
+              <span span-small old-price>{{item.oldPrice}}</span>
+              <span span-medium new-price>{{item.newPrice}}</span>
+            </item-content>
+          </ion-item>
+          <ion-item-options no-lines>
+            <button ion-button (click)="delete(item)">
+              <ion-icon icon-medium>
+                <i class="icon {{item.iconDelate}}"></i>
+              </ion-icon>
+            </button>
+            <button ion-button (click)="undo(slidingItem)">
+                <ion-icon icon-medium>
+                  <i class="icon {{item.iconUndo}}"></i>
+                </ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

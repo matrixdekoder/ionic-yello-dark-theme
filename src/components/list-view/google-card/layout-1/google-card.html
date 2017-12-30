@@ -1,0 +1,41 @@
+<!--Theme Styled cards-->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row card-background-page>
+      <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 *ngFor="let item of data.items;let i = index">
+            <ion-card text-left (click)="onEvent('onItemClick', item.title, $event)">
+              <div item-start float-left card-img>
+                <img [src]="item.image" />
+              </div>
+              <!--Card-content-->
+              <ion-card-content>
+                <ion-card-title no-padding>
+                  <h2 card-title>{{item.title}}</h2>
+                </ion-card-title>
+                <h3 card-subtitle>{{item.description}}</h3>
+                <h3 card-subtitle>{{item.shortDescription}}</h3>
+                <p card-body-text>{{item.longDescription}}</p>
+                <!---Social share-->
+                <div float-right social>
+                  <ion-icon>
+                    <i icon-small ng-if="group.iconLike" class="icon {{item.iconLike}}" (click)="onEvent('onLike', item, $event)"></i>
+                  </ion-icon>
+                  <ion-icon>
+                    <i icon-small ng-if="item.iconFavorite" class="icon {{item.iconFavorite}}" (click)="onEvent('onFavorite', item, $event)"></i>
+                  </ion-icon>
+                  <ion-icon>
+                    <i icon-small ng-if="item.iconShare" class="icon {{item.iconShare}}" (click)="onEvent('onShare', item, $event)"></i>
+                  </ion-icon>
+                </div>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+      <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

@@ -1,0 +1,20 @@
+<!-- Theme Search bars Simple -->
+<ion-grid no-padding>
+  <ion-row *ngIf="data != null">
+    <ion-col col-12>
+      <ion-searchbar [(ngModel)]="searchTerm" search-bar-bcg (ionInput)="onEvent('onTextChange', $event)"></ion-searchbar>
+    </ion-col>
+    <!-- List -->
+    <ion-col col-12>
+      <ion-list no-margin>
+        <ion-item item-bcg *ngFor="let item of data.items;" (click)="onEvent('onItemClick', item)">
+          <ion-icon item-left icon-small>
+            <i class="icon {{item.icon}}"></i>
+          </ion-icon>
+          <h2 item-title>{{item.title}}</h2>
+          <h2 item-subtitle>{{item.description}}</h2>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

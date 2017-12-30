@@ -1,0 +1,19 @@
+/*  #Style Field + Header
+===========================================*/
+search-bar-layout-3 {
+  [container-hearder-image] {
+    padding-top: 100px;
+    height: 160px;
+    @include darkening-blend-mode;
+  }
+
+  .item-inner {
+    margin-left: 5px !important;
+  }
+
+  [span-medium] {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}

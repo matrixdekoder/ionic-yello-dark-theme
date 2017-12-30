@@ -1,0 +1,54 @@
+/*  #Style Wizard Big image
+===========================================*/
+wizard-layout-2 {
+  [wizard-titl] {
+    z-index: 9;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  .swiper-slide {
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    @include darkening-blend-mode;
+  }
+
+  [default-button] {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .swiper-pagination {
+    bottom: 15px !important;
+
+    .swiper-pagination-bullet {
+      background: theme-colors('mainColors', 'secondary') !important;
+    }
+  }
+
+  ion-slides {
+    height: 88%;
+    margin-top: 20px;
+  }
+
+  [wizard-title] {
+    z-index: 2;
+    position: relative;
+  }
+
+  .swiper-pagination {
+    bottom: 20px;
+  }
+
+  .swiper-wrapper {
+    height: 90%;
+  }
+
+  .swiper-container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+}

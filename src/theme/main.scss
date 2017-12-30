@@ -1,0 +1,657 @@
+//////////////////////////////////////////////////
+// YELLOW DARK THEME
+
+//  Font Style
+//  Font sizes
+//  Global Colors
+//  Global Opacity
+//  Color Function
+//  Gradients
+//  Changing Background Images in Black&White Mode
+//  Blend Mode Colors
+//  Dividers Settings
+//  Border Radius
+//  Content Color Settings
+//  Shadows
+//  Icon Sizes
+//  Icon Settings
+//  Social Icons Color
+//  Span Settings
+//  LIST VIEWS - Header
+//  LIST VIEWS - Item Parameters
+//  LIST VIEWS - Subitem Parameters
+//  Button Settings
+//  Google Cards Settings
+//  Swipe Item
+//  Parallax Settings
+//  Checkbox
+//  Wizard Settings
+//  Input Field Settings
+//  Search Bar Settings
+//  Google Maps
+//  Animations
+//  Background Sizes
+//  Default Overview Ionic
+//////////////////////////////////////////////////
+
+// Settings Font Style
+$font-name: 'Roboto', sans-serif;
+$font-weight-value: 300 !default;
+
+.bar.bar-stable .title,
+.item h2[item-title],
+.item h3[item-subtitle],
+.item h2[subitem-title],
+.item h3[subitem-subtitle],
+h2[swiped-item-title],
+ion-card h2[card-title],
+ion-card h3[card-subtitle],
+ion-card p[card-body-text],
+h2[search-bar-title],
+ion-title .toolbar-title,
+.main-menu ion-label,
+.submenu ion-label,
+ion-item h1[parallax-title],
+button[button-clear],
+body,
+ion-label,
+a,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+p {
+  font-family: $font-name;
+  font-weight: $font-weight-value; }
+
+// Settings Font Size
+$h1-font-size: 24px;
+$h2-font-size: 20px;
+$h3-font-size: 16px;
+$h4-font-size: 14px;
+$h5-font-size: 12px;
+$h6-font-size: 10px;
+$text-font-size: 14px;
+
+[transparent] {
+  background-color: transparent !important;
+}
+
+
+// Global Colors
+$palettes: (
+    mainColors: ( // Also used for backgrounds.
+
+        primary:   #424242, // Used for toolbars
+        secondary:  #FCD736, // Used for various small elements
+        accent:   #202020 //Used for icon-search-bar, loaders-spinners, checkbox-item, icon, button, span, input-field-icons
+    ),
+
+    textColors: ( // Used for text colors in all screens
+
+        primary: #FCD736, // Used for text colors in: item-title, item-subtitle, header-title, header-subtitle
+        secondary: #FEFEFE, // Used for text colors in: buttons, header-title, subitem-title, subitem-subtitle
+        accent:   #ffffff, // Used for text colors in: header-title, header-subtitle
+    ),
+    blendModes: ( // Used for blend modes
+
+        primary:  #ffffff,
+        secondary: #424242
+    )
+);
+
+// Global Opacity
+$global-opacity: (
+  'opacity0': 0,
+  'opacity10': 0.1,
+  'opacity20': 0.2,
+  'opacity30': 0.3,
+  'opacity40': 0.4,
+  'opacity50': 0.5,
+  'opacity60': 0.6,
+  'opacity70': 0.7,
+  'opacity80': 0.8,
+  'opacity90': 0.9,
+  'opacity100': 1
+);
+
+// Function to print color
+@function theme-colors($name: 'blendModes', $variant: 'primary', $opacity: 1) {
+  // Get the color spectrum
+  $color-spectrum: map-get($palettes, $name);
+  // Get the color variant
+  $color: map-get($color-spectrum, $variant);
+  // Get the alpha setting
+  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($global-opacity, $opacity));
+  // Set the alpha of the color
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+  @return $color;
+}
+
+// Gradient
+@mixin gradient-accent {
+  background: #fcb64e;
+  background: -moz-linear-gradient(left, #fcb64e 0%, #f1582c 50%, #b72025 100%);
+  background: -webkit-linear-gradient(left, #fcb64e 0%, #f1582c 50%,#b72025 100%);
+  background: linear-gradient(to left, #fcb64e 0%, #f1582c 50%,#b72025 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#fcb64e', endColorstr='#b72025',GradientType=1 );
+}
+
+// Changing Background Images in Black&White Mode
+@mixin black-white-mode {
+  background-color: theme-colors('blendModes', 'primary');
+  background-blend-mode: luminosity;
+}
+// Darkening and Black&White Blend Mode
+@mixin darkening-blend-mode {
+    @include black-white-mode;
+     &::before {
+       content: "";
+       display: block;
+       height: 100%;
+       width: 100%;
+       top: 0;
+       left: 0;
+       position: absolute;
+       pointer-events: none;
+       mix-blend-mode: multiply;
+      background-color: theme-colors('blendModes', 'secondary');
+     }
+}
+
+[images-filter] {
+  -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+// Spiner View
+.spinner-view {
+  img {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 auto;
+  }
+
+  .swiper-pagination-bullet {
+    background: theme-colors('mainColors', 'secondary') !important;
+  }
+}
+
+// Divider Settings
+$item-divider-small: 1px solid theme-colors('mainColors', 'secondary');
+$item-divider-medium: 2px solid theme-colors('mainColors', 'secondary');
+$item-divider-large: 4px solid theme-colors('mainColors', 'secondary');
+
+// Border Radius
+$border-radius: 4px;
+
+// List Color Settings
+$list-background-color: theme-colors('mainColors', 'primary');
+// List Activated Button
+$list-md-activated-background-color: theme-colors('mainColors', 'primary');
+$list-ios-activated-background-color: theme-colors('mainColors', 'primary');
+
+// Settings Border Color Border Item
+$list-md-border-color: theme-colors('mainColors', 'accent');
+$item-md-divider-border-bottom: 1px solid $list-md-border-color;
+$item-ios-divider-background: theme-colors('mainColors', 'primary');
+$item-md-divider-background: theme-colors('mainColors', 'primary');
+
+// Content Color Settings
+$content-bcg: red !important;// TESTIRAJ
+
+// Settings Background Your App
+$background-color: theme-colors('mainColors', 'accent');
+// Shadows
+$box-shadow-z1: 0 2px 10px rgba(0, 0, 0, 0.2);
+$box-shadow-z2: 0 4px 10px rgba(0, 0, 0, 0.2);
+$box-shadow-z3: 0 6px 10px rgba(0, 0, 0, 0.2);
+
+// Icon Sizes
+$icon-size:(
+  'icon-small': 20px,
+  'icon-medium': 32px,
+  'icon-large': 60px
+);
+@function icon-size($key: 'icon-small') {
+  @return map-get($icon-size, $key);
+}
+
+// Icon Settings
+[icon-small] {
+  color: theme-colors('mainColors', 'secondary', 'opacity60') !important;
+  font-size: icon-size('icon-small') !important;
+}
+[icon-medium] {
+  color: theme-colors('mainColors', 'secondary', 'opacity60') !important;
+  font-size: icon-size('icon-medium') !important;
+}
+
+[icon-large] {
+  color: theme-colors('mainColors', 'secondary', 'opacity60') !important;
+  font-size: icon-size('icon-large') !important;
+}
+
+//  Social Icons Color
+@mixin social {
+   @if &{
+    i.icon {
+      color: theme-colors('mainColors', 'secondary', 'opacity60');
+      font-size: icon-size('icon-small');
+      width: 20px;
+    }
+  }
+}
+
+// Span Settings
+[span-small]{
+  color: theme-colors('mainColors', 'secondary');
+  font-size: $h5-font-size;
+}
+
+[span-medium]{
+  color: theme-colors('mainColors', 'secondary');
+  font-size: $h1-font-size;
+}
+
+[span-large]{
+  color: theme-colors('mainColors', 'secondary');
+  font-size: $h1-font-size;
+}
+
+
+// LIST VIEWS - Header
+[header-title]{
+  color: theme-colors('mainColors', 'primary');
+  font-size: $h1-font-size;
+}
+
+[header-subtitle]{
+  color: theme-colors('mainColors', 'primary');
+  font-size: $h4-font-size;
+}
+
+[header-bcg]{
+  background-color: theme-colors('mainColors', 'secondary') !important;
+  box-shadow: $box-shadow-z1;
+}
+
+[header-divider]{
+  background-color: theme-colors('mainColors', 'secondary');
+  box-shadow: $box-shadow-z1;
+  border: none;
+}
+
+// LIST VIEWS - Item Parameters
+[item-title] {
+  color: theme-colors('textColors', 'primary') !important;
+  font-size: $h2-font-size !important;
+}
+
+[item-subtitle] {
+  color: theme-colors('textColors', 'secondary', 'opacity60') !important;
+  font-size: $h5-font-size !important;
+}
+
+// LIST VIEWS - Subitem Parameters
+[subitem-title] {
+  color: theme-colors('textColors', 'accent');
+  font-size: $h4-font-size;
+  line-height: normal;
+}
+
+[subitem-subtitle] {
+  color: theme-colors('textColors', 'accent', 'opacity60');
+  font-size: $h5-font-size;
+}
+
+// Button Settings
+[default-button] {
+  background-color: theme-colors('mainColors', 'secondary') !important;
+  color: theme-colors('mainColors', 'accent') !important;
+  font-size: $h3-font-size !important;
+  font-weight: 500 !important;
+  border-radius: $border-radius !important;
+}
+
+[button-clear] {
+  color: theme-colors('textColors', 'primary') !important;
+  font-size: $h3-font-size !important;
+}
+
+[button-clear-outline] {
+  color: theme-colors('mainColors', 'primary') !important;
+  font-size: $h3-font-size !important;
+  border: 1px solid theme-colors('mainColors', 'primary') !important;
+}
+
+// Fab Button Settings
+[button-ion-fab] {
+  background-color: theme-colors('mainColors', 'secondary') !important;
+  color: theme-colors('mainColors', 'accent') !important;
+  z-index: 9 !important;
+  bottom: 20px;
+  right: 20px;
+  -webkit-transition: all 300ms !important;
+  transition: all 300ms !important;
+
+  ion-icon {
+    margin-top: 2px;
+    display: block;
+  }
+}
+
+// Fab Button Settings Animation
+.fab-button-out {
+  bottom: -80px;
+  animation: fade-out 300ms ease-in;
+  -ms-animation: fade-out 300ms ease-in;
+  -webkit-animation: fade-out 300ms ease-in;
+  -o-animation: fade-out 300ms ease-in;
+  -moz-animation: fade-out 300ms ease-in;
+}
+
+@keyframes fade-out {
+  from {
+    bottom: 20px;
+  }
+
+  to {
+    bottom: -80px;
+  }
+}
+
+//Google Cards Settings
+[card-title]{
+  color: theme-colors('textColors', 'primary') !important;
+  font-size: $h2-font-size !important;
+}
+
+[card-subtitle]{
+  color: theme-colors('textColors', 'secondary', 'opacity60') !important;
+  font-size: $h4-font-size !important;
+}
+
+[card-body-text]{
+  color: theme-colors('textColors', 'secondary', 'opacity60') !important;
+  font-size: $text-font-size;
+}
+
+// Swipe Item
+// [swiped-item-bcg]{
+//   background-color: theme-colors('mainColors', 'primary', 'opacity60')!important;
+// }
+
+$item-md-sliding-content-background: theme-colors('mainColors', 'primary');
+
+[swiped-item-title]{
+  color: theme-colors('textColors', 'accent');
+  margin: 0;
+  font-size: $h5-font-size !important;
+  text-transform: initial;
+}
+
+// Parallax Settings
+[parallax-title]{
+  color: theme-colors('textColors', 'primary');
+  font-size: $h1-font-size !important;
+}
+
+[parallax-subtitle]{
+  color: theme-colors('textColors', 'primary');
+  font-size: $h4-font-size !important;
+}
+
+// Checkbox
+  // Settings for ios
+$checkbox-ios-background-color-on: theme-colors('mainColors', 'secondary');
+$checkbox-ios-background-color-off: theme-colors('mainColors', 'primary');
+$checkbox-ios-icon-border-color-off: theme-colors('mainColors', 'secondary');
+$checkbox-ios-icon-border-color-on: theme-colors('mainColors', 'secondary');
+  // Settings for android
+$checkbox-md-icon-background-color-on: theme-colors('mainColors', 'secondary');
+$checkbox-md-icon-background-color-off: theme-colors('mainColors', 'primary');
+$checkbox-md-icon-border-color-off: theme-colors('mainColors', 'secondary');
+$checkbox-md-icon-border-color-on: theme-colors('mainColors', 'secondary');
+$checkbox-md-icon-border-width: 2px;
+$checkbox-md-icon-border-radius: 4px;
+$checkbox-md-icon-size: 18px;
+$checkbox-md-icon-checkmark-color: theme-colors('mainColors', 'accent');
+
+// Wizard Setting
+[wizard-bcg] {
+  background-color: theme-colors('mainColors', 'secondary');
+}
+[wizard-title] {
+  color: theme-colors('textColors', 'primary');
+  font-size: $h3-font-size !important;
+}
+[wizard-body-text]{
+  color: theme-colors('textColors', 'primary', 'opacity60');
+  font-size: $h4-font-size !important;
+}
+
+// Input Field Settings
+$text-input-md-highlight-color: theme-colors('mainColors', 'secondary') !important;
+$text-inpu-highlight-color-valid: theme-colors('mainColors', 'secondary') !important;
+$text-input-highlight-color-invalid: red !important;
+$text-input-md-background-color: theme-colors('mainColors', 'secondary') !important;
+
+// Input Field Settings IOS
+$text-input-ios-highlight-color: theme-colors('mainColors', 'secondary') !important;
+$text-input-ios-background-color: theme-colors('mainColors', 'secondary') !important;
+
+
+// Tabs Setting
+
+[tabs-bcg] {
+  background-color: theme-colors('mainColors', 'primary');
+}
+
+[tabs-title] {
+  color: theme-colors('textColors', 'primary');
+  font-size: $h2-font-size !important;
+}
+
+[tabs-subtitle] {
+  color: theme-colors('textColors', 'primary');
+  font-size: $h2-font-size !important;
+}
+
+
+// Search Bar Setting
+
+// For ios
+$searchbar-ios-input-background-color: theme-colors('mainColors', 'primary') !important;
+$searchbar-ios-input-placeholder-color: theme-colors('mainColors', 'secondary');
+$searchbar-ios-input-search-icon-color: theme-colors('mainColors', 'secondary');
+$searchbar-ios-input-clear-icon-color: theme-colors('mainColors', 'secondary');
+// For android
+$searchbar-md-input-background-color: theme-colors('mainColors', 'primary') !important;
+$searchbar-md-input-placeholder-color: theme-colors('mainColors', 'secondary');
+$searchbar-md-input-search-icon-color: theme-colors('mainColors', 'secondary');
+$searchbar-md-input-clear-icon-color: theme-colors('mainColors', 'secondary');
+
+[search-bar-title]{
+  color: theme-colors('textColors', 'primary');
+  font-size: $h1-font-size !important;
+}
+
+//  Google Maps
+
+[map-header]{
+  background-color: theme-colors('mainColors', 'secondary');
+  ion-icon {
+    color: theme-colors('mainColors', 'primary');
+  }
+  [maps-title] {
+      font-size: $h1-font-size;
+      color: theme-colors('mainColors', 'primary');
+  }
+  [maps-subtitle] {
+    font-size: 14px;
+    color: theme-colors('mainColors', 'primary', 'opacity60');
+    font-size: $text-font-size;
+  }
+}
+
+
+[map-content] {
+  [title] {
+    font-size: $h2-font-size;
+    color: theme-colors('mainColors', 'secondary');
+  }
+
+  [description] {
+    color: theme-colors('textColors', 'secondary', 'opacity60') !important;
+    font-size: $text-font-size;
+  }
+
+  [info] {
+
+    ion-icon {
+      margin: 7px 0 0 !important;
+    }
+
+    .label-md {
+      margin: 0 !important;
+    }
+
+    .item-block {
+      min-height: 1.5em !important;
+    }
+  }
+}
+
+
+//Animations
+@mixin animation {
+  -webkit-animation: fadeInRight 500ms;
+  -moz-animation: fadeInRight 500ms;
+  -o-animation: fadeInRight 500ms;
+  animation: fadeInRight 500ms;
+}
+
+//Background Size
+[background-size] {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+//Default Overview Ionic
+  ion-list > .item:last-child, ion-list > .item-wrapper:last-child .item {
+      border-bottom: 1px solid theme-colors('mainColors', 'accent') !important;
+  }
+
+   ion-list > .item:first-child, ion-list > .item-wrapper:first-child .item{
+     border-top: none !important;
+  }
+  [no-padding] {
+    padding: 0 !important;
+  }
+
+  [no-margin]{
+    margin: 0 !important;
+  }
+
+  [has-header] .scroll-content{
+    top: 56px;
+  }
+
+  // Settings header for IOS
+  .platform-ios {
+    ion-list {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    [has-header] .scroll-content {
+      top: 60px;
+    }
+
+    [header-bcg] {
+      position: relative !important;
+    }
+  }
+
+  $toolbar-md-height: 56px !important;
+  $toolbar-ios-height: 56px !important;
+  $toolbar-background: theme-colors('mainColors', 'secondary');
+  ion-header {
+    .toolbar-title {
+         color: theme-colors('mainColors', 'accent') !important;
+         text-transform: uppercase;
+     }
+  }
+
+
+//Settings Loading For Android
+$loading-md-background: theme-colors('mainColors', 'primary');
+$loading-md-text-color: theme-colors('textColors', 'primary');
+$loading-md-spinner-color: theme-colors('textColors', 'primary');
+
+//Settings Loading For Ios
+$loading-md-background: theme-colors('mainColors', 'primary');
+$loading-md-text-color: theme-colors('textColors', 'primary');
+$loading-md-spinner-color: theme-colors('textColors', 'primary');
+
+  // Alert message
+  .alert-md {
+    .alert-title {
+      font-size: 15px !important;
+      font-weight: 300;
+    }
+
+    .alert-head,
+    .alert-input,
+    .alert-message,
+    .button-inner {
+      color: theme-colors('textColors', 'primary') !important;
+    }
+    .alert-head {
+      padding: 20px 24px 15px 24px !important;
+    }
+
+    .alert-input-group {
+          padding: 0 24px 10px 24px !important;
+    }
+
+    .alert-message {
+      overflow-y: hidden;
+      max-height: 40px !important;
+      padding: 0 24px 0px 24px !important;
+    }
+
+    .alert-input {
+      border-bottom: 1px solid theme-colors('mainColors', 'secondary') !important;
+    }
+
+    .alert-wrapper {
+      background-color: theme-colors('mainColors', 'accent') !important;
+    }
+
+    ::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: theme-colors('textColors', 'primary') !important;
+    }
+
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: theme-colors('textColors', 'primary') !important;
+    }
+
+    :-ms-input-placeholder {
+      /* IE 10+ */
+      color: theme-colors('textColors', 'primary') !important;
+    }
+
+    :-moz-placeholder {
+      /* Firefox 18- */
+      color: theme-colors('textColors', 'primary') !important;
+    }
+  }

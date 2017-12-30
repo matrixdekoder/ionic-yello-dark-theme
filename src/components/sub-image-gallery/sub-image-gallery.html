@@ -1,0 +1,9 @@
+<!-- Theme Image Sub-Gallery for Category 1 -->
+<ion-grid no-padding *ngIf="data != null">
+    <ion-row no-margin no-padding>
+        <ion-col no-margin no-padding col-4 col-sm-3 col-md-6 col-lg-4 col-xl-3 *ngFor="let item of data.items;let i = index;">
+            <ion-card no-margin background-size (click)="openImageSlider(data, i)" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>

@@ -1,0 +1,37 @@
+<!-- Themes Small item + header -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <!-- Header -->
+    <ion-row header-bcg padding>
+      <ion-col col-7 text-left>
+        <h1 header-title>{{data.title}}</h1>
+        <h2 header-subtitle>{{data.description}}</h2>
+      </ion-col>
+      <ion-col col-5 text-right>
+        <span span-medium text wrap>{{data.duration}}</span>
+        <ion-icon>
+          <i icon-medium class="icon {{data.icon}}"></i>
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+    <!--Content-->
+    <ion-row>
+      <ion-col col-12>
+        <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+          <ion-item no-padding *ngFor="let item of data.items; let i = index;"
+          (click)="onEvent('onItemClick', item.title, $event)">
+            <ion-icon item-start icon-medium><i class="icon {{item.leftIcon}}"></i></ion-icon>
+            <h2 no-padding item-title>{{item.title}}</h2>
+            <h3 no-padding item-subtitle>{{item.author}}</h3>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

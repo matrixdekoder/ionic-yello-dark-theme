@@ -1,0 +1,79 @@
+<!--Content -->
+<ion-content elastic-header has-header>
+    <div id="elastic-header">
+        <agm-map *ngIf="data != null" [latitude]="data.map.lat" [longitude]="data.map.lng" [zoom]="data.map.zoom" [mapTypeControl]="data.map.mapTypeControl" [streetViewControl]="data.map.streetViewControl">
+            <agm-marker [latitude]="data.map.lat" [longitude]="data.map.lng"></agm-marker>
+        </agm-map>
+    </div>
+    <ion-grid no-padding *ngIf="data != null">
+        <ion-row>
+            <ion-col col-12 map-header>
+                <ion-item social no-lines transparent>
+                    <ion-icon (click)="onEvent('onLike', data)">
+                        <i class="icon {{data.iconLike}}"></i>
+                    </ion-icon>
+                    <ion-icon (click)="onEvent('onFavorite', data)">
+                        <i class="icon {{data.iconFavorite}}"></i>
+                    </ion-icon>
+                    <ion-icon (click)="onEvent('onShare', data)">
+                        <i class="icon {{data.iconShare}}"></i>
+                    </ion-icon>
+                </ion-item>
+                <ion-item no-lines transparent>
+                    <h1 padding-left maps-title>{{data.title}}</h1>
+                    <p padding-left maps-subtitle>{{data.titleDescription}}</p>
+                    <!--Parallax Rateing-->
+                    <ion-item no-margin padding-left transparent>
+                        <ion-icon *ngFor="let item of data.iconsStars;let i = index" (click)="onStarClass(data.iconsStars, i, $event)">
+                            <i *ngIf="item.isActive" class="icon {{item.iconActive}}"></i>
+                            <i *ngIf="!item.isActive" class="icon {{item.iconInactive}}"></i>
+                        </ion-icon>
+                        <span>{{data.reviews}}</span>
+                    </ion-item>
+                </ion-item>
+            </ion-col>
+            <!---Content-->
+            <ion-col col-12 map-content>
+                <ion-item padding no-lines>
+                    <h2 title padding-left>{{data.contentTitle}}</h2>
+                    <p description text-wrap padding-left>{{data.contentDescription}}</p>
+                </ion-item>
+            </ion-col>
+            <!---Content Info-->
+            <ion-col col-12 map-content>
+                <ion-list info>
+                    <ion-item no-lines padding-left>
+                        <ion-icon item-start icon-small padding-left>
+                            <i class="icon {{data.iconLoacation}}"></i>
+                        </ion-icon>
+                        <p no-margin description>{{data.iconLoacationText}}</p>
+                    </ion-item>
+                    <ion-item no-lines padding-left>
+                        <ion-icon item-start icon-small padding-left>
+                            <i class="icon {{data.iconWatch}}"></i>
+                        </ion-icon>
+                        <p no-margin description>{{data.iconWatchText}}</p>
+                    </ion-item>
+                    <ion-item no-lines padding-left>
+                        <ion-icon item-start icon-small padding-left>
+                            <i class="icon {{data.iconPhone}}"></i>
+                        </ion-icon>
+                        <p no-margin description>{{data.iconPhoneText}}</p>
+                    </ion-item>
+                    <ion-item no-lines padding-left>
+                        <ion-icon item-start icon-small padding-left>
+                            <i class="icon {{data.iconEarth}}"></i>
+                        </ion-icon>
+                        <p no-margin description>{{data.iconEarthText}}</p>
+                    </ion-item>
+                    <ion-item no-lines padding-left>
+                        <ion-icon item-start icon-small padding-left>
+                            <i class="icon {{data.iconEmail}}"></i>
+                        </ion-icon>
+                        <p no-margin description>{{data.iconEmailText}}</p>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

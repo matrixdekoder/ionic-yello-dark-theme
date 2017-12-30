@@ -1,0 +1,18 @@
+<!--Login page component-->
+<ion-header>
+  <ion-navbar header-color>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--Content-->
+<ion-content>
+  <login-layout-1 *ngIf="params.loginLayout1" [data]="params.data | async" [events]="params.events">
+  </login-layout-1>
+
+  <login-layout-2 *ngIf="params.loginLayout2" [data]="params.data | async" [events]="params.events">
+  </login-layout-2>
+</ion-content>

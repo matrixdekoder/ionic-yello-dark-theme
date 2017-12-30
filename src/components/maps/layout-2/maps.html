@@ -1,0 +1,82 @@
+<!--Google Maps Gmaps + About Us-->
+<ion-content has-header *ngIf="data != null">
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <!--Social Shere-->
+      <ion-col col-12>
+        <ion-item no-lines>
+          <div float-right social>
+            <ion-icon icon-small (click)="onEvent('onLike', data)">
+              <i class="icon {{data.iconLike}}"></i>
+            </ion-icon>
+            <ion-icon icon-small (click)="onEvent('onFavorite', data)">
+              <i class="icon {{data.iconFavorite}}"></i>
+            </ion-icon>
+            <ion-icon icon-small (click)="onEvent('onShare', data)">
+              <i class="icon {{data.iconShare}}"></i>
+            </ion-icon>
+          </div>
+        </ion-item>
+      </ion-col>
+      <!---About Name-->
+      <ion-col col-12>
+        <ion-item map-header no-lines>
+          <h1 maps-title padding-horizontal>{{data.title}}</h1>
+          <p maps-subtitle padding-horizontal>{{data.titleDescription}}</p>
+        </ion-item>
+      </ion-col>
+      <!---About Us-->
+      <ion-col col-12 map-content>
+        <ion-item no-lines>
+          <h2 title padding-horizontal>{{data.contentTitle}}</h2>
+          <p description text-wrap padding-horizontal>{{data.contentDescription}}</p>
+        </ion-item>
+        <!---About Info-->
+        <ion-item no-lines>
+          <ion-icon item-start icon-small padding-left>
+            <i class="icon {{data.iconLoacation}}"></i>
+          </ion-icon>
+          <p no-margin description>{{data.iconLoacationText}}</p>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-icon item-start icon-small padding-left>
+            <i class="icon {{data.iconWatch}}"></i>
+          </ion-icon>
+          <p no-margin description>{{data.iconWatchText}}</p>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-icon item-start icon-small padding-left>
+            <i class="icon {{data.iconPhone}}"></i>
+          </ion-icon>
+          <p no-margin description>{{data.iconPhoneText}}</p>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-icon item-start icon-small padding-left>
+            <i class="icon {{data.iconEarth}}"></i>
+          </ion-icon>
+          <p no-margin description>{{data.iconEarthText}}</p>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-icon item-start icon-small padding-left>
+            <i class="icon {{data.iconEmail}}"></i>
+          </ion-icon>
+          <p no-margin description>{{data.iconEmailText}}</p>
+        </ion-item>
+      </ion-col>
+      <!---MAP TEXT-->
+      <ion-col col-12>
+        <ion-item no-lines>
+          <h2 title padding-horizontal>{{data.titleMap}}</h2>
+        </ion-item>
+      </ion-col>
+      <!---MAP-->
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <agm-map [latitude]="data.map.lat" [longitude]="data.map.lng" [zoom]="data.map.zoom" [mapTypeControl]="data.map.mapTypeControl" [streetViewControl]="data.map.streetViewControl">
+          <agm-marker [latitude]="data.map.lat" [longitude]="data.map.lng"></agm-marker>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

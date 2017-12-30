@@ -1,0 +1,66 @@
+<!--Theme Small item + header-->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12 header-bcg>
+        <ion-item no-padding no-lines transparent>
+          <ion-icon icon-large item-start>
+            <i class="icon {{data.iconPlay}}"></i>
+          </ion-icon>
+          <h1 header-title>{{data.title}}</h1>
+          <h2 header-subtitle>{{data.description}}</h2>
+          <span span-medium>{{data.shortDescription}}</span>
+          <div float-right social>
+            <ion-icon>
+              <i class="icon icon-thumb-up" (click)="onEvent('onLike', item, $event)"></i>
+            </ion-icon>
+            <ion-icon>
+              <i class="icon icon-heart" (click)="onEvent('onFavorite', item, $event)"></i>
+            </ion-icon>
+            <ion-icon>
+              <i class="icon icon-share-variant" (click)="onEvent('onShare', item, $event)"></i>
+            </ion-icon>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <!--Swipe To Dismiss -->
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item-sliding *ngFor="let item of data.items" #slidingItem>
+            <button ion-item (click)="onEvent('onItemClick', item.title, $event)">
+              <ion-avatar item-start>
+                <img [src]="item.image">
+              </ion-avatar>
+              <h2 item-title>{{item.title}}</h2>
+              <h3 item-subtitle>{{item.description}}</h3>
+              <span item-end span-small>{{item.shortDescription}}</span>
+              <ion-icon icon-medium item-end>
+                <i class="icon icon-play"></i>
+              </ion-icon>
+            </button>
+            <ion-item-options no-lines>
+              <button ion-button (click)="delete(item)">
+                  <ion-icon icon-medium>
+                    <i class="icon {{item.iconDelate}}"></i>
+                  </ion-icon>
+              </button>
+              <button ion-button (click)="undo(slidingItem)">
+                  <ion-icon icon-medium>
+                    <i class="icon {{item.iconUndo}}"></i>
+                  </ion-icon>
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', item, $event)">
+<ion-icon name="add"></ion-icon>
+</button>
+</ion-fab>

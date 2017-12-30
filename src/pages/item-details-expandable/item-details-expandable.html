@@ -1,0 +1,19 @@
+<!--Expandable components-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title text-left>{{params.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<!--Content-->
+<expandable-layout-1 *ngIf="params.expandableLayout1" [data]="params.data | async" [events]="params.events">
+</expandable-layout-1>
+
+<expandable-layout-2 *ngIf="params.expandableLayout2" [data]="params.data | async" [events]="params.events">
+</expandable-layout-2>
+
+<expandable-layout-3 *ngIf="params.expandableLayout3" [data]="params.data | async" [events]="params.events">
+</expandable-layout-3>

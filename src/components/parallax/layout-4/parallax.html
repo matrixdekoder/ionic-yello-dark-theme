@@ -1,0 +1,73 @@
+<!--- Theme Parallax Location Details -->
+<!--- Header Big Image-->
+<ion-content elastic-header has-header *ngIf="data != null">
+  <ion-item no-lines background-size id="elastic-header"
+   [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+  </ion-item>
+  <!--- Social Share-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item no-lines color="primary">
+          <ion-icon icon-small (click)="onEvent('onLike', data)">
+            <i class="icon {{data.iconLike}}"></i>
+          </ion-icon>
+          <ion-icon icon-small (click)="onEvent('onFavorite', data)">
+            <i class="icon {{data.iconFavorite}}"></i>
+          </ion-icon>
+          <ion-icon icon-small (click)="onEvent('onShare', data)">
+            <i class="icon {{data.iconShare}}"></i>
+          </ion-icon>
+        </ion-item>
+      </ion-col>
+      <!--Parallax Title-->
+      <ion-col col-12>
+        <ion-item item-bcg no-lines>
+          <h1 parallax-title>{{data.title}}</h1>
+        </ion-item>
+      </ion-col>
+      <!--Parallax Rateing-->
+      <ion-col col-12>
+        <ion-item item-bcg no-margin padding-right>
+          <ion-icon *ngFor="let item of data.iconsStars;let i = index" (click)="onStarClass(data.iconsStars, i, $event)">
+            <i icon-small *ngIf="item.isActive" class="icon {{item.iconActive}}"></i>
+            <i icon-small *ngIf="!item.isActive" class="icon {{item.iconInactive}}"></i>
+          </ion-icon>
+          <span span-small>{{data.reviews}}</span>
+        </ion-item>
+      </ion-col>
+      <!--Content-->
+      <!-- Description 1-->
+      <ion-col col-12>
+        <ion-item item-bcg text-wrap no-margin padding-right>
+          <h3 item-subtitle>{{data.description}}</h3>
+        </ion-item>
+        <!--Info-->
+        <ion-item item-bcg no-margin padding-right>
+          <div info *ngFor="let item of data.items;let i = index">
+            <span item-subtitle left margin-right>{{item.name}}</span>
+            <p item-subtitle>{{item.value}}</p>
+          </div>
+          <!-- Description 2-->
+        </ion-item>
+        <ion-item item-bcg text-wrap no-margin padding-right>
+          <h3 item-subtitle>{{data.description2}}</h3>
+        </ion-item>
+        <!-- Description 3-->
+        <ion-item item-bcg text-wrap no-margin padding-right>
+          <h3 item-subtitle>{{data.description3}}</h3>
+        </ion-item>
+        <!-- Description 4-->
+        <ion-item item-bcg text-wrap no-lines no-margin padding-right>
+          <h3 item-subtitle>{{data.description4}}</h3>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

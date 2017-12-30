@@ -1,0 +1,48 @@
+/*  #Style Register + Image
+================================================*/
+register-layout-2 {
+  .logo {
+      overflow: hidden;
+  }
+
+  img {
+    max-width: 250px;
+    display: block;
+    text-align: right;
+    float: right;
+  }
+
+  .form {
+    padding: 10px;
+    overflow: hidden;
+
+    .item-inner {
+        margin-left: 10px !important;
+    }
+
+    .item-md ion-icon[item-left] {
+      margin: 25px 0 0;
+    }
+
+    .text-input,
+    ion-label {
+      color: theme-colors('textColors', 'primary') !important;
+    }
+
+    .item-inner {
+      border-bottom-color: theme-colors('mainColors', 'secondary') !important;
+      box-shadow: none !important;
+    }
+
+    [button-clear] {
+      margin-top: 15px;
+    }
+
+    [title] {
+      font-size: $h1-font-size;
+      color: theme-colors('textColors', 'primary');
+      text-transform: uppercase;
+      margin: 0 10px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<!-- Themes Medium item with avatar-->
+<ion-content has-header>
+    <ion-grid no-padding *ngIf="data != null">
+        <!--Content-->
+        <ion-row>
+            <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+                <ion-list no-margin reorder="true" (ionItemReorder)="reorderItems($event)">
+                    <ion-item *ngFor="let item of data.items; let i = index;" (click)="onEvent('onItemClick', item.title, $event)">
+                        <ion-avatar item-start>
+                            <img [src]="item.image">
+                        </ion-avatar>
+                        <h2 item-title>{{item.title}}</h2>
+                        <h3 item-subtitle>{{item.description}}</h3>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+    <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

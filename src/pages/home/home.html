@@ -1,14 +1,22 @@
+<!--Fist Screen-->
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+      <button ion-button menuToggle>
+    <ion-icon class="icon-menu" name="menu"></ion-icon>
+  </button>
+      <ion-title *ngIf="data != null">{{data.toolbarTitle}}</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<!--Fist Screen Content-->
+<ion-content *ngIf="data != null">
+  <div background-size [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
+      <div ionic-descript text-center>
+          <h2 item-title>{{data.title}}</h2>
+          <h2 item-title>{{data.subtitle}}</h2>
+          <p item-subtitle>{{data.subtitle2}}</p>
+      </div>
+      <a [href]="data.link">
+          {{data.description}}
+      </a>
+  </div>
 </ion-content>

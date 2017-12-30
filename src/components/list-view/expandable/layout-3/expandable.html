@@ -1,0 +1,45 @@
+<!-- Themes Centered with header -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12 no-padding no-margin>
+        <ion-list>
+          <!---HEADER-->
+          <ion-list-header no-margin no-padding no-lines background-size
+          [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+            <h2 item-title text-center>{{data.title}}</h2>
+          </ion-list-header>
+          <!--CONTENT-->
+          <ul no-margin no-padding class="collapsible">
+            <li no-margin *ngFor="let group of data.items;">
+              <!-- Expandable Centered with header Header-->
+              <div class="collapsible-header" no-margin no-padding (click)="toggleGroup(group)">
+                <ion-item text-center no-lines>
+                  <ion-icon icon-small>
+                    <i class="icon {{group.icon}}"></i>
+                  </ion-icon>
+                  <h2 text-center item-title>{{group.title}}</h2>
+                </ion-item>
+              </div>
+              <!-- Expandable Centered with header Body -->
+              <div class="item-accordion" [ngClass]="{'active': isGroupShown(group) }"
+              [hidden]="!isGroupShown(group)">
+                <ion-item no-lines no-padding transparent *ngFor="let item of group.items;"
+                (click)="onEvent('onItemClick', item, $event)">
+                  <h2 text-center subitem-title>{{item}}</h2>
+                </ion-item>
+              </div>
+              <!--end-->
+            </li>
+          </ul>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!---Fab Button-->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', group, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

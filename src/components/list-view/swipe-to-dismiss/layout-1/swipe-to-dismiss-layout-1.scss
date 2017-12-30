@@ -1,0 +1,56 @@
+/* # Themes Small item + header
+================================================*/
+
+
+
+swipe-to-dismiss-layout-1 {
+  [header-bcg] {
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    display: block;
+
+    [header-title] {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    [header-subtitle] {
+      font-weight: 300;
+    }
+
+    [icon-large] {
+      font-size: icon-size('icon-large');
+      color: theme-colors('textColors', 'accent') !important;
+    }
+
+    [span-medium] {
+      font-size: $h1-font-size;
+      color: theme-colors('mainColors', 'primary');
+      display: inline-block;
+    }
+
+    [social] {
+      margin-top: 8px;
+
+      [icon-medium] {
+        color: theme-colors('mainColors', 'primary') !important;
+        font-size: icon-size('icon-small') !important;
+      }
+    }
+  }
+
+  ion-list {
+    margin-top: 110px !important;
+    margin-bottom: 0 !important;
+
+    [span-small] {
+      font-size: $h6-font-size;
+      margin: 0;
+    }
+
+    // ion-item-options {
+    //   border-bottom: 1px solid theme-colors('mainColors', 'accent') !important;
+    // }
+  }
+}

@@ -1,0 +1,67 @@
+/*  #Style Products + CTA header
+==========================================*/
+drag-and-drop-layout-2 {
+  [container-hearder-image] {
+    position: relative;
+    @include darkening-blend-mode;
+    height: 140px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    ion-col {
+      z-index: 9999;
+      position: relative;
+
+      [span-large] {
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+
+    > ion-col:last-child {
+      text-align: right;
+    }
+
+    [header-title] {
+      color: theme-colors('mainColors', 'secondary');
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    [header-subtitle] {
+      color: theme-colors('mainColors', 'secondary');
+      font-size: $text-font-size;
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+
+  ion-item {
+    ion-label {
+      margin: 0 !important;
+    }
+
+    ion-thumbnail img {
+      width: 100px !important;
+      height: 100px !important;
+    }
+
+    .input-wrapper {
+      padding-left: 16px;
+    }
+  }
+
+  [span-medium] {
+    text-align: right;
+    margin-top: 5px;
+  }
+
+  [span-small] {
+    color: theme-colors('textColors', 'secondary', 'opacity60');
+    text-align: right;
+    font-size: $h5-font-size;
+    text-decoration: line-through;
+  }
+}

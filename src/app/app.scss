@@ -1,6 +1,4 @@
-// http://ionicframework.com/docs/theming/
-
-
+// http://ionicframework.com/docs/v2/theming/
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,41 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+// Settings Style Main Meni
+[header-background-image] {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    @include darkening-blend-mode;
+    ion-thumbnail {
+        padding-top: 40px;
+        img {
+            margin: 0 auto;
+            position: relative;
+            z-index: 9;
+            max-width: 80px;
+        }
+    }
+    [item-title] {
+        position: relative;
+        z-index: 9;
+    }
+}
+
+// Settings Main  Menu
+[main-menu] {
+    ion-icon {
+        color: theme-colors('textColors', 'primary');
+        float: left;
+        padding-left: 30px;
+        margin-right: 10px;
+    }
+}
+
+// Settings Submenu
+[submenu] {
+    ion-label {
+        padding-left: 30px !important;
+    }
+}

@@ -1,0 +1,6 @@
+<!--Content -->
+<ion-content has-header *ngIf="data != null">
+    <agm-map [latitude]="data.map.lat" [longitude]="data.map.lng" [zoom]="data.map.zoom" [mapTypeControl]="data.map.mapTypeControl" [streetViewControl]="data.map.streetViewControl">
+        <agm-marker [latitude]="data.map.lat" [longitude]="data.map.lng"></agm-marker>
+    </agm-map>
+</ion-content>

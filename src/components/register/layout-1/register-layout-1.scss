@@ -1,0 +1,37 @@
+/*  #Style Register + logo
+================================================*/
+register-layout-1 {
+  img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+  .form {
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-z2;
+    padding: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    .text-input,
+    ion-label {
+      color: theme-colors('textColors', 'primary') !important;
+    }
+
+    .item-inner {
+      border-bottom-color: theme-colors('mainColors', 'secondary') !important;
+      box-shadow: none !important;
+    }
+
+    [button-clear] {
+      margin-top: 15px;
+    }
+
+    [title] {
+      font-size: $h1-font-size;
+      color: theme-colors('textColors', 'primary');
+      text-transform: uppercase;
+      margin: 0 10px;
+    }
+  }
+}

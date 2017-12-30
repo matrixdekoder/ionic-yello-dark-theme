@@ -1,0 +1,57 @@
+<!-- Theme List big image -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ul no-margin no-padding class="collapsible">
+            <li *ngFor="let group of data.items;">
+              <!-- List big image Header -->
+              <div class="collapsible-header" (click)="toggleGroup(group)">
+                <ion-item no-padding>
+                  <ion-thumbnail item-start no-margin>
+                    <img [src]="group.image" alt="{{group.title}}" />
+                  </ion-thumbnail>
+                  <h2 padding-left item-title>{{group.title}}</h2>
+                  <h3 padding-left item-subtitle>{{group.description}}</h3>
+                  <div social float-right>
+                    <ion-icon>
+                      <i ng-if="group.iconLike" class="icon {{group.iconLike}}"
+                      (click)="onEvent('onLike', group, $event)"></i>
+                    </ion-icon>
+                    <ion-icon>
+                      <i ng-if="group.iconFavorite" class="icon {{group.iconFavorite}}"
+                      (click)="onEvent('onFavorite', group, $event)"></i>
+                    </ion-icon>
+                    <ion-icon>
+                      <i ng-if="group.iconShare" class="icon {{group.iconShare}}"
+                      (click)="onEvent('onShare', group, $event)"></i>
+                    </ion-icon>
+                  </div>
+                </ion-item>
+              </div>
+              <!-- List big image Body -->
+              <div class="item-accordion" [ngClass]="{'active': isGroupShown(group) }" [hidden]="!isGroupShown(group)">
+                <ion-item transparent no-lines *ngFor="let item of group.items;" (click)="onEvent('onItemClick', item.title, $event)">
+                  <ion-thumbnail item-start>
+                    <img [src]="item.image" alt="{{item.title}}" />
+                  </ion-thumbnail>
+                  <h2 subitem-title>{{item.title}}</h2>
+                  <h3 subitem-subtitle>{{item.description}}</h3>
+                  <ion-icon item-end icon-medium><i class="icon {{item.iconPlay}}"></i></ion-icon>
+                </ion-item>
+              </div>
+              <!--end-->
+            </li>
+          </ul>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', group, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

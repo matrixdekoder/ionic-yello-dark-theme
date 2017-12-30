@@ -1,0 +1,6 @@
+<!--Screen Gallery-->
+<ion-slides #slider pager="true" zoom="true" [initialSlide]="data.index">
+  <ion-slide *ngFor="let item of data.items;">
+    <img [src]="item.image" />
+  </ion-slide>
+</ion-slides>

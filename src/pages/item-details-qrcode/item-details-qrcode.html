@@ -1,0 +1,13 @@
+<!-- QRCode component-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--Content-->
+<qrcode-layout-1 *ngIf="params.qrcodeLayout1" [data]="params.data" [events]="params.events">
+</qrcode-layout-1>

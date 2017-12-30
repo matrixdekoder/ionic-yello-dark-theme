@@ -1,0 +1,19 @@
+<!--Map component-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--Content-->
+<maps-layout-1 *ngIf="params.mapsLayout1" [data]="params.data | async" [events]="params.events">
+</maps-layout-1>
+
+<maps-layout-2 *ngIf="params.mapsLayout2" [data]="params.data | async" [events]="params.events">
+</maps-layout-2>
+
+<maps-layout-3 *ngIf="params.mapsLayout3" [data]="params.data | async" [events]="params.events">
+</maps-layout-3>

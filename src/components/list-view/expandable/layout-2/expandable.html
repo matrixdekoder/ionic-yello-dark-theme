@@ -1,0 +1,43 @@
+<!-- Themes Expandable Full image with CTA -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12 no-padding no-margin>
+        <ion-list>
+          <ul no-margin no-padding class="collapsible">
+            <li margin *ngFor="let group of data.items;">
+              <!-- Expandable Full image with CTA Header-->
+              <div class="collapsible-header">
+                <ion-item no-margin no-padding no-lines background-size
+                [ngStyle]="{'background-image': 'url(' + group.backgroundImage + ')'}">
+                  <h2 item-title>{{group.title}}</h2>
+                  <button ion-button float-right default-button (click)="toggleGroup(group)">
+                      {{group.button}}
+                </button>
+                </ion-item>
+              </div>
+              <!-- Expandable Full image with CTA Body -->
+              <div class="item-accordion" [ngClass]="{'active': isGroupShown(group) }"
+              [hidden]="!isGroupShown(group)">
+                <ion-item full default-button no-lines *ngFor="let item of group.items;"
+                (click)="onEvent('onItemClick', item, $event)">
+                  <h2 padding-left subitem-title>{{item}}</h2>
+                  <ion-icon item-end icon-small>
+                    <i class=" icon icon-chevron-right"></i>
+                  </ion-icon>
+                </ion-item>
+              </div>
+              <!--end-->
+            </li>
+          </ul>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!---Fab Button-->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', group, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

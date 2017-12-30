@@ -1,0 +1,21 @@
+<!--Search bar components-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <search-bar-layout-1 *ngIf="params.searchBarsLayout1" [data]="params.data | async" [events]="params.events">
+  </search-bar-layout-1>
+
+  <search-bar-layout-2 *ngIf="params.searchBarsLayout2" [data]="params.data | async" [events]="params.events">
+  </search-bar-layout-2>
+
+  <search-bar-layout-3 *ngIf="params.searchBarsLayout3" [data]="params.data | async" [events]="params.events">
+  </search-bar-layout-3>
+</ion-content>

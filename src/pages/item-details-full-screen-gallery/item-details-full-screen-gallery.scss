@@ -1,0 +1,9 @@
+// Settings Image gallery
+full-screen-gallery {
+  .swiper-pagination-bullet-active {
+    background: theme-colors('mainColors', 'secondary');
+  }
+  .swiper-pagination-bullet {
+    background: theme-colors('mainColors', 'secondary', 'opacity50');
+  }
+}

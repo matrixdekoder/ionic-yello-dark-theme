@@ -1,0 +1,13 @@
+/*  # Style Image Sub-Gallery for Category 1 (Animals)
+=======================================================*/
+
+sub-image-gallery {
+    ion-card {
+        position: relative;
+        height: 120px;
+        width: calc(100%) !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}

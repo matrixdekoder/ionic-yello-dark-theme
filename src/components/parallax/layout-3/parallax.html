@@ -1,0 +1,39 @@
+<!--- Theme Parallax Basic -->
+<!--- Header Big Image-->
+<ion-content elastic-header has-header *ngIf="data != null">
+  <ion-item no-lines background-size id="elastic-header"
+  [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+    <ion-thumbnail>
+      <img src="{{data.avatar}}" />
+    </ion-thumbnail>
+    <div text-center>
+      <h1 parallax-title>{{data.title}}</h1>
+    </div>
+  </ion-item>
+  <!--Content-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ion-item item-bcg *ngFor="let item of data.items;let i = index" (click)="onEvent('onItemClick', item)">
+            <ion-avatar item-left>
+              <img src="{{item.image}}">
+            </ion-avatar>
+            <h2 item-title>{{item.title}}</h2>
+            <h3 item-subtitle>{{item.description}}</h3>
+            <ion-icon item-right (click)="onEvent('onFavorite', item, $event)">
+              <i icon-small class="icon"
+              [ngClass]="{'icon-heart': item.favorite, 'icon-heart-outline': !item.favorite}"></i>
+            </ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

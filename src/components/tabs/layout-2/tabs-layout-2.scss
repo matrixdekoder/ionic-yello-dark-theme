@@ -1,0 +1,42 @@
+/*  # Style Tabs Footer tab - icons
+==================================*/
+
+tabs-layout-2 {
+  .tabbar {
+    background: theme-colors('mainColors', 'accent') !important;
+  }
+
+  .tab-button-icon {
+    color: theme-colors('mainColors', 'secondary', 'opacity50');
+  }
+
+  .tab-button[aria-selected=true] {
+    border-top: 3px solid theme-colors('mainColors', 'secondary');
+
+    ion-icon {
+      color: theme-colors('mainColors', 'secondary') !important;
+      font-size: 30px !important;
+    }
+  }
+
+  [background-size] {
+    @include darkening-blend-mode;
+    display: table;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    .tab-decription {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 30px;
+      z-index: 9;
+      position: relative;
+    }
+
+    scroll-content {
+      background-color: transparent !important;
+    }
+  }
+}

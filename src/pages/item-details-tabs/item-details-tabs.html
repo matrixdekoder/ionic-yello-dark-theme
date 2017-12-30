@@ -1,0 +1,20 @@
+<!--Tabs component-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <tabs-layout-1 *ngIf="params.tabsLayout1" [data]="params.data" [events]="params.events">
+  </tabs-layout-1>
+
+  <tabs-layout-2 *ngIf="params.tabsLayout2" [data]="params.data" [events]="params.events">
+  </tabs-layout-2>
+
+  <tabs-layout-3 *ngIf="params.tabsLayout3" [data]="params.data" [events]="params.events">
+  </tabs-layout-3>
+</ion-content>

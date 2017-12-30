@@ -1,0 +1,32 @@
+/*  #Style Parallax Location Details
+===========================================*/
+
+parallax-layout-4 {
+    [background-size] {
+        height: 250px;
+        position: relative;
+        z-index: 999;
+        @include darkening-blend-mode;
+    }
+    ion-thumbnail img {
+        border-radius: 50%;
+        margin: 0 auto 10px;
+        z-index: 5;
+        position: relative;
+    }
+    [parallax-title] {
+        z-index: 5;
+        position: relative;
+    }
+    [info] {
+        margin-bottom: 5px;
+        >[item-subtitle]:nth-child(1) {
+            font-weight: bold;
+            line-height: 18px;
+            margin-right: 5px;
+        }
+    }
+    .item-inner {
+        padding: 0 !important;
+    }
+}

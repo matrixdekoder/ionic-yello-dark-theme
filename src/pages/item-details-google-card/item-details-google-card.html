@@ -1,0 +1,19 @@
+<!--Google card components-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title text-left>{{params.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<!--Content-->
+<google-card-layout-1 *ngIf="params.googleCardsLayout1" [data]="params.data | async" [events]="params.events">
+</google-card-layout-1>
+
+<google-card-layout-2 *ngIf="params.googleCardsLayout2" [data]="params.data | async" [events]="params.events">
+</google-card-layout-2>
+
+<google-card-layout-3 *ngIf="params.googleCardsLayout3" [data]="params.data | async" [events]="params.events">
+</google-card-layout-3>

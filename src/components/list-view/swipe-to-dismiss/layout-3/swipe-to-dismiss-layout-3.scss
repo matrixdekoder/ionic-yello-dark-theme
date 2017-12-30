@@ -1,0 +1,12 @@
+/*  #Theme Products + CTA footer
+===========================================*/
+swipe-to-dismiss-layout-3 {
+  [background-size] {
+    height: 150px;
+    @include darkening-blend-mode;
+  }
+  [item-title], [item-subtitle] {
+    position: relative;
+    z-index: 5;
+  }
+}

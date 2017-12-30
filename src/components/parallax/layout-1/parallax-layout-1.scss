@@ -1,0 +1,30 @@
+/*  # Style Parallax Players
+================================================*/
+
+parallax-layout-1 {
+    [background-size] {
+        @include darkening-blend-mode;
+        height: 250px;
+        position: relative;
+    }
+    [play-block] {
+        position: absolute;
+        left: 30px;
+        bottom: 10px;
+        [icon-small] {
+            z-index: 99;
+        }
+    }
+    [parallax-title] {
+        z-index: 9;
+        padding-top: 130px;
+        display: block;
+        position: relative;
+        margin: 0 45px;
+    }
+    [social] {
+        z-index: 99;
+        position: relative;
+        padding: 10px;
+    }
+}

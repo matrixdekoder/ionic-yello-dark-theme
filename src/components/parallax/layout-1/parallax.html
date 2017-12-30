@@ -1,0 +1,55 @@
+<!--- Theme Parallax Players -->
+<ion-content elastic-header has-header *ngIf="data != null">
+  <div background-size id="elastic-header"
+  [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+    <!--Social Shere-->
+    <div right social>
+      <ion-icon icon-small (click)="onEvent('onLike', data)">
+        <i class="icon {{data.iconLike}}"></i>
+      </ion-icon>
+      <ion-icon icon-small (click)="onEvent('onFavorite', data)">
+        <i class="icon {{data.iconFavorite}}"></i>
+      </ion-icon>
+      <ion-icon icon-small (click)="onEvent('onShare', data)">
+        <i class="icon {{data.iconShare}}"></i>
+      </ion-icon>
+    </div>
+    <!--Title parallax-->
+    <h1 parallax-title *ngIf="data != null">{{data.title}}</h1>
+    <!---Play button-->
+    <div play-block>
+      <ion-icon icon-medium item-left (click)="onEvent('onSkipPrevious', data)">
+        <i class="icon {{data.iconSkipPrevious}}"></i>
+      </ion-icon>
+      <ion-icon icon-medium item-left (click)="onEvent('onPlay', data)">
+        <i class="icon {{data.iconPlay}}"></i>
+      </ion-icon>
+      <ion-icon icon-medium item-left (click)="onEvent('onSkipNext', data)">
+        <i class="icon {{data.iconSkipNext}}"></i>
+      </ion-icon>
+    </div>
+  </div>
+  <!--Content-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ion-item item-bcg *ngFor="let item of data.items;let i = index"
+          (click)="onEvent('onItemClick', item)">
+            <ion-avatar item-left>
+              <img src="{{item.image}}">
+            </ion-avatar>
+            <h2 item-title>{{item.title}}</h2>
+            <h3 item-subtitle>{{item.description}}</h3>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

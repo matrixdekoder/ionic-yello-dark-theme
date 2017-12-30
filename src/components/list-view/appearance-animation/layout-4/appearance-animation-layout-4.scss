@@ -1,0 +1,11 @@
+/*  #Style Appearance animation (Fade In)
+================================================*/
+
+appearance-animation-layout-4 {
+    .fade-in-item {
+        -webkit-animation: fadeIn 800ms;
+        -moz-animation: fadeIn 800ms;
+        -o-animation: fadeIn 800ms;
+        animation: fadeIn 800ms;
+    }
+}

@@ -1,0 +1,41 @@
+<!-- Themes Products + CTA header -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row padding background-size container-hearder-image [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+      <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left>
+        <h1 header-title>{{data.title}}</h1>
+        <h2 header-subtitle>{{data.description}}</h2>
+      </ion-col>
+      <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right>
+        <span span-large>{{data.price}}</span>
+        <button ion-button default-button (click)="onEvent('onProceed', data, $event)">
+            {{data.buttonText}}
+          </button>
+      </ion-col>
+    </ion-row>
+    <!--Content-->
+    <ion-row no-padding>
+      <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+        <ion-list no-margin reorder="true" (ionItemReorder)="reorderItems($event)">
+          <ion-item no-padding *ngFor="let item of data.items; let i = index;" (click)="onEvent('onItemClick', item.title, $event)">
+            <ion-thumbnail item-start no-margin>
+              <img src="{{item.image}}">
+            </ion-thumbnail>
+            <h2 item-title>{{item.title}}</h2>
+            <div span-small>{{item.oldPrice}}</div>
+            <div span-medium>{{item.newPrice}}</div>
+            <!-- Products + CTA header Seller And Shipping-->
+            <h3 item-subtitle float-left>{{item.seller}} {{item.mark}}</h3>
+            <h3 item-subtitle float-right>Free shipping</h3>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+  <ion-icon name="add"></ion-icon>
+</button>
+</ion-fab>

@@ -1,0 +1,28 @@
+/*  #Style Category 2 (Music)
+===========================================*/
+image-gallery-layout-2 {
+  ion-card {
+    position: relative;
+    height: 130px;
+    width: 100% !important;
+  }
+
+  [gallery-title] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(37, 37, 37, 0.5)!important;
+    top: 0;
+    min-height: 45px;
+    border-bottom: 1px solid transparent !important;
+
+    ion-icon {
+      position: absolute;
+      right: 10px;
+      top: 25px;
+      color: theme-colors('textColors', 'primary');
+      font-size: icon-size('icon-small');
+    }
+  }
+}

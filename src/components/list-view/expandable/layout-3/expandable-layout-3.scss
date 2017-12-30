@@ -1,0 +1,56 @@
+/*  #Style Centered with header
+===========================================*/
+
+expandable-layout-3 {
+  ul {
+    li {
+      list-style-type: none;
+
+      &:last-child ion-item:before {
+        border-bottom: 1px solid transparent !important;
+      }
+    }
+  }
+
+  ion-list-header {
+    &[background-size] {
+      height: 200px;
+      width: 100%;
+      @include darkening-blend-mode;
+    }
+
+    [item-title] {
+      z-index: 5;
+      position: relative;
+    }
+  }
+
+  .item-accordion {
+    height: 0;
+    display: block !important;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    overflow: hidden;
+
+    &.active {
+      height: 200px !important;
+    }
+  }
+
+  .collapsible-header {
+    ion-item:before {
+      content: '';
+      width: 200px;
+      position: absolute;
+      left: 50%;
+      margin-left: -100px;
+      bottom: 0;
+      border-bottom: 1px solid theme-colors('mainColors', 'accent');
+    }
+
+    ion-icon {
+      display: block;
+      text-align: center;
+    }
+  }
+}

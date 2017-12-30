@@ -1,0 +1,25 @@
+<!--Animation components-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title text-left>{{params.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<!--Content-->
+<appearance-animation-layout-1 *ngIf="params.appearanceAnimationsLayout1" [data]="params.data | async" [events]="params.events">
+</appearance-animation-layout-1>
+
+<appearance-animation-layout-2 *ngIf="params.appearanceAnimationsLayout2" [data]="params.data | async" [events]="params.events">
+</appearance-animation-layout-2>
+
+<appearance-animation-layout-3 *ngIf="params.appearanceAnimationsLayout3" [data]="params.data | async" [events]="params.events">
+</appearance-animation-layout-3>
+
+<appearance-animation-layout-4 *ngIf="params.appearanceAnimationsLayout4" [data]="params.data | async" [events]="params.events">
+</appearance-animation-layout-4>
+
+<appearance-animation-layout-5 *ngIf="params.appearanceAnimationsLayout5" [data]="params.data | async" [events]="params.events">
+</appearance-animation-layout-5>

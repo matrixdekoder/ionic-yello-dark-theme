@@ -1,0 +1,42 @@
+/*  #Style Wizard Big image
+===========================================*/
+wizard-layout-3 {
+  [background-size] {
+    @include darkening-blend-mode;
+  }
+  [skip] {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+  }
+
+  [navigation] {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    z-index: 2;
+    width: 160px;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  [wizard-description] {
+    width: 300px;
+    margin: 0 auto;
+    z-index: 99;
+    position: relative;
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 70px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: theme-colors('mainColors', 'secondary');
+  }
+
+  .swiper-pagination-bullet {
+    background: theme-colors('mainColors', 'secondary', 'opacity60');
+  }
+}

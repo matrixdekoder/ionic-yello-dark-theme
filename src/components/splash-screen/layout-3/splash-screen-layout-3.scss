@@ -1,0 +1,66 @@
+/*  #Style Theme Down + Ken Burns
+===========================================*/
+splash-screen-layout-3 {
+  #splash-background-image .splash-screen {
+    animation: splashScreen 40s ease infinite;
+    -ms-animation: splashScreen 40s ease infinite;
+    -webkit-animation: splashScreen 40s ease infinite;
+    -o-animation: splashScreen 40s ease infinite;
+    -moz-animation: splashScreen 40s ease infinite;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  @keyframes splashScreen {
+    0%,
+    100% {
+      transform: scale(1.5, 1.5) translate(20px, 20px);
+    }
+
+    25% {
+      transform: scale(1.8, 1.8) translate(50px, 50px);
+    }
+
+    50% {
+      transform: scale(1.6, 1.6) translate(60px, 90px);
+    }
+
+    75% {
+      transform: scale(2.0, 2.0) translate(10px, 10px);
+    }
+  }
+
+  .logo-title {
+    position: absolute;
+    top: 50% !important;
+    left: 50%;
+    min-width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    -webkit-animation: fadeInDown 5s;
+    /* Safari 4+ */
+    -moz-animation: fadeInDown 5s;
+    /* Fx 5+ */
+    -o-animation: fadeInDown 5s;
+    /* Opera 12+ */
+    animation: fadeInDown 5s;
+    /* IE 10+, Fx 29+ */
+    h1 {
+      color: theme-colors('mainColors', 'secondary') !important;
+      text-align: center;
+      margin-top: 10px;
+      animation: zoomIn 5s;
+     -webkit-animation: zoomIn 5s;
+
+    }
+    .logo {
+      animation: zoomIn 5s;
+     -webkit-animation: zoomIn 5s;
+      max-width: 100px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}

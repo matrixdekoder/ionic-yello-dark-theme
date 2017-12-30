@@ -1,0 +1,10 @@
+/*  #Style Search bars Simple
+===========================================*/
+search-bar-layout-1 {
+  [search-bar-bcg] {
+    .searchbar-input {
+      background-color: transparent;
+      color: theme-colors('textColors', 'primary');
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<!---Settings TAB lauout-1-->
+<ion-content>
+  <div background-size [ngStyle]="{'background-image': 'url(' + params.backgroundImage + ')'}" *ngIf=" params != null">
+    <div padding class="tab-decription">
+      <h2 tabs-title text-center>{{params.title}}</h2>
+      <p tabs-subtitle text-center>{{params.description}}</p>
+    </div>
+  </div>
+</ion-content>

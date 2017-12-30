@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "450167842906",
+    "firebase_url": "https://ionic3-yellow.firebaseio.com",
+    "project_id": "ionic3-yellow",
+    "storage_bucket": "ionic3-yellow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450167842906:android:cbb07f2c8161aa82",
+        "android_client_info": {
+          "package_name": "com.csform.ionic.yellow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450167842906-r840ks7nn3l354tkgceki5g9j8to8t63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs-nBWJ2_dwTvxDwfuxlFiJBejt1eIs10"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

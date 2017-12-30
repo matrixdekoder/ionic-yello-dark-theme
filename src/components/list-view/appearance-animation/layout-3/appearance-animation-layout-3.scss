@@ -1,0 +1,11 @@
+/*  #Style Appearance animation (Fade In Down)
+================================================*/
+
+appearance-animation-layout-3 {
+    .fade-in-down-item {
+        -webkit-animation: fadeInDownBig 800ms;
+        -moz-animation: fadeInDownBig 800ms;
+        -o-animation: fadeInDownBig8500ms;
+        animation: fadeInDownBig 800ms;
+    }
+}

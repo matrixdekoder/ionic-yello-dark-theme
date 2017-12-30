@@ -1,0 +1,17 @@
+<!--Theme Category 1 (Animals)-->
+<ion-grid no-padding>
+  <ion-row no-margin no-padding>
+    <ion-col col-6 col-sm-3 col-md-6 col-lg-4 col-xl-3 no-margin no-padding *ngFor="let group of data.items;let i = index;">
+      <ion-card background-size no-margin (click)="openSubGallery(data, i)"
+      [ngStyle]="{'background-image': 'url(' + group.image + ')'}">
+        <div gallery-title>
+          <h2 item-title>{{group.title}}</h2>
+          <p item-subtitle>{{group.items.length}} image(s)</p>
+          <ion-icon (click)="onEvent('onFavorite', group, $event)">
+            <i class="icon" [ngClass]="{'icon-heart': group.favorite, 'icon-heart-outline': !group.favorite}"></i>
+          </ion-icon>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

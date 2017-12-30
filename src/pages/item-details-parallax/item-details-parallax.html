@@ -1,0 +1,21 @@
+<!--Parallax components-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<parallax-layout-1 *ngIf="params.parallaxLayout1" [data]="params.data | async" [events]="params.events">
+</parallax-layout-1>
+
+<parallax-layout-2 *ngIf="params.parallaxLayout2" [data]="params.data | async" [events]="params.events">
+</parallax-layout-2>
+
+<parallax-layout-3 *ngIf="params.parallaxLayout3" [data]="params.data | async" [events]="params.events">
+</parallax-layout-3>
+
+<parallax-layout-4 *ngIf="params.parallaxLayout4" [data]="params.data | async" [events]="params.events">
+</parallax-layout-4>

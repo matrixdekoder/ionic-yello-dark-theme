@@ -1,0 +1,11 @@
+/*  #Style Appearance animation (Zoom In)
+================================================*/
+
+appearance-animation-layout-5 {
+    .zoom-in {
+        -webkit-animation: zoomIn 500ms;
+        -moz-animation: zoomIn 500ms;
+        -o-animation: zoomIn 500ms;
+        animation: zoomIn 500ms;
+    }
+}

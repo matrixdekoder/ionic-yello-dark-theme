@@ -1,0 +1,11 @@
+/*  #Style Appearance animation (Fade In Right)
+================================================*/
+
+appearance-animation-layout-2 {
+    .fade-in-right-item {
+        -webkit-animation: fadeInRight 800ms;
+        -moz-animation: fadeInRight 800ms;
+        -o-animation: fadeInRight 800ms;
+        animation: fadeInRight 800ms;
+    }
+}

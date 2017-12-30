@@ -1,0 +1,52 @@
+/*  # Style Tabs Header tab - text
+==================================*/
+tabs-layout-3 {
+  .tabbar {
+    background: theme-colors('mainColors', 'secondary') !important;
+  }
+
+  .tab-button[aria-selected=false] {
+    .tab-button-text {
+      color: theme-colors('mainColors', 'accent', 'opacity50');
+      text-transform: uppercase !important;
+      font-weight: 600 !important;
+    }
+  }
+
+  .tab-button[aria-selected=true] {
+    border-top: 3px solid theme-colors('mainColors', 'accent') !important;
+
+    .tab-button-text {
+      text-transform: uppercase !important;
+      font-weight: 600 !important;
+      color: theme-colors('mainColors', 'accent') !important;
+    }
+  }
+
+  [background-size] {
+    @include darkening-blend-mode;
+    display: table;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    .tab-decription {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 30px;
+        z-index: 9;
+        position: relative;
+    }
+    scroll-content {
+        background-color: transparent !important;
+    }
+  }
+
+
+
+
+
+
+
+
+}

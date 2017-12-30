@@ -1,0 +1,23 @@
+/*  #Style Full Image Cards
+================================================*/
+
+google-card-layout-3 {
+    ion-card {
+        position: relative;
+        @include darkening-blend-mode;
+        border-radius: $border-radius !important;
+        &:before {
+            z-index: 3;
+        }
+    }
+    .card-md {
+        background: transparent !important;
+    }
+    [card-description] {
+        position: absolute;
+        bottom: 10%;
+        width: 90%;
+        left: 20px;
+        z-index: 9;
+    }
+}
