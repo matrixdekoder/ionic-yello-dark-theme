@@ -2,46 +2,46 @@
 <ion-grid *ngIf="data != null">
   <ion-row wrap padding>
     <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
-  <!--Form-->
-  <div class="form">
-    <!--Form Title-->
-    <h1 title text-right>{{data.register}}</h1>
-    <!---Input field username-->
-    <ion-item no-padding color="accent">
-      <ion-label floating>{{data.username}}</ion-label>
-      <ion-input required type="text" [(ngModel)]="username"></ion-input>
-    </ion-item>
-    <!---Input field password-->
-    <ion-item no-padding color="accent">
-      <ion-label floating>{{data.password}}</ion-label>
-      <ion-input required type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-    <!---Input field email-->
-    <ion-item no-padding color="accent">
-      <ion-label floating>{{data.email}}</ion-label>
-      <ion-input required type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" [(ngModel)]="email"></ion-input>
-    </ion-item>
-    <!---Input field country-->
-    <ion-item no-padding color="accent">
-      <ion-label floating>{{data.country}}</ion-label>
-      <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="country"></ion-input>
-    </ion-item>
-    <!---Input field city-->
-    <ion-item no-padding color="accent">
-      <ion-label floating>{{data.city}}</ion-label>
-      <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="city"></ion-input>
-    </ion-item>
-    <!---Register button-->
-    <button ion-button right clear button-clear (click)="onEvent('onRegister')">{{data.register}}</button>
-  </div>
-  <div class="logo">
-    <!---Logo-->
-    <ion-thumbnail>
-      <img left [src]="data.logo">
-    </ion-thumbnail>
-    <!---Skip button-->
-    <button ion-button right clear button-clear (click)="onEvent('onSkip')">{{data.skip}}</button>
-  </div>
-</ion-col>
-</ion-row>
+      <!--Form-->
+      <div class="form">
+        <!--Form Title-->
+        <h1 title text-right>{{data.register}}</h1>
+        <!---Input field username-->
+        <ion-item no-padding color="accent">
+          <ion-label floating>{{data.username}}</ion-label>
+          <ion-input required type="text" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <!---Input field password-->
+        <ion-item no-padding color="accent">
+          <ion-label floating>{{data.password}}</ion-label>
+          <ion-input required type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <!---Input field email-->
+        <ion-item no-padding color="accent">
+          <ion-label floating>{{data.email}}</ion-label>
+          <ion-input required type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <!---Input field country-->
+        <ion-item no-padding color="accent">
+          <ion-label floating>{{data.country}}</ion-label>
+          <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="country"></ion-input>
+        </ion-item>
+        <!---Input field city-->
+        <ion-item no-padding color="accent">
+          <ion-label floating>{{data.city}}</ion-label>
+          <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="city"></ion-input>
+        </ion-item>
+        <!---Register button-->
+        <button ion-button right clear button-clear (click)="onEvent('onRegister')">{{data.register}}</button>
+      </div>
+      <div class="logo">
+        <!---Logo-->
+        <ion-thumbnail>
+          <img left [src]="data.logo">
+        </ion-thumbnail>
+        <!---Skip button-->
+        <button ion-button right clear button-clear (click)="onEvent('onSkip')">{{data.skip}}</button>
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-grid>

@@ -1,8 +1,7 @@
 <ion-split-pane when="md">
   <ion-menu [content]="content" *ngIf="params != null">
     <!-- Menu Main Top -->
-    <ion-header background-size header-background-image
-    [ngStyle]="{'background-image': 'url(' + params.background + ')'}">
+    <ion-header background-size header-background-image [ngStyle]="{'background-image': 'url(' + params.background + ')'}">
       <ion-thumbnail>
         <img [src]="params.image">
       </ion-thumbnail>
@@ -12,11 +11,11 @@
     <ion-content>
       <ion-list no-margin no-padding>
         <button menuClose ion-item item-title no-padding main-menu *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon padding-left>
-          <i class="icon {{p.icon}}"></i>
-        </ion-icon>
-        {{p.title}}
-      </button>
+          <ion-icon padding-left>
+            <i class="icon {{p.icon}}"></i>
+          </ion-icon>
+          {{p.title}}
+        </button>
       </ion-list>
     </ion-content>
   </ion-menu>
